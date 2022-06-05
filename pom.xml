@@ -13,6 +13,7 @@
     <version>0.0.1-SNAPSHOT</version>
     <name>jwd-colors</name>
     <description>jwd-colors</description>
+    <packaging>jar</packaging>
     <properties>
         <java.version>17</java.version>
     </properties>
@@ -26,11 +27,24 @@
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
+<!--        <dependency>-->
+<!--            <groupId>com.microsoft.sqlserver</groupId>-->
+<!--            <artifactId>mssql-jdbc</artifactId>-->
+<!--            <scope>runtime</scope>-->
+<!--        </dependency>-->
+
         <dependency>
-            <groupId>com.microsoft.sqlserver</groupId>
-            <artifactId>mssql-jdbc</artifactId>
-            <scope>runtime</scope>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-thymeleaf</artifactId>
         </dependency>
+
+        <dependency><groupId>nz.net.ultraq.thymeleaf</groupId><artifactId>thymeleaf-layout-dialect</artifactId></dependency>
+
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+        </dependency>
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>

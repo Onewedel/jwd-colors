@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+<head>
+    <title th:text="${title}"></title>
+</head>
+<body>
+
+<div layout:fragment="content">
+    <section class="my-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+
+                    <h1 th:text="${title}"></h1>
+
+                    <div style="max-width: 800px; margin: 50px auto">
+                        <canvas id="myChart" width="1600" height="900"></canvas>
+                    </div>
+                    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+                    <script th:inline="javascript">
+                        const labels = [[${labels}]];
+
+                        const data = {
+                            labels: labels,
+                            datasets: [{
+                                backgroundColor: [[${labels}]],
+                                borderWidth: 2,
+                                data: [[${values}]],
+                            }]
+                        };
+
+                        const config = {
+                            type: 'bar',
+                            data: data,
+                            options: {
+                                plugins: {
+                                    legend: {display: false}
+                                },
+                                scales: {
+                                    Y: {
+                                        beginAtZero: true
+                                    }
+                                }
+
+                            }
+                        };
+                    </script>
+
+                    <script th:inline="javascript">
+                        const myChart = new Chart(
+                            document.getElementById('myChart'),
+                            config
+                        );
+                    </script>
+
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
